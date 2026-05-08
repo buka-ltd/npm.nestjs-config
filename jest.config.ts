@@ -1,6 +1,10 @@
+import { readFileSync } from 'node:fs'
 import type { JestConfigWithTsJest } from 'ts-jest'
 import { pathsToModuleNameMapper } from 'ts-jest'
-import { compilerOptions } from './tsconfig.json'
+
+const { compilerOptions } = JSON.parse(readFileSync('./tsconfig.json', 'utf8')) as {
+  compilerOptions: { paths: Record<string, string[]> }
+}
 
 const jestConfig: JestConfigWithTsJest = {
   preset: 'ts-jest',
@@ -17,7 +21,7 @@ const jestConfig: JestConfigWithTsJest = {
   ],
   setupFilesAfterEnv: ['<rootDir>/__tests__/setup.ts'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
-  resolver: 'ts-jest-resolver',
+  resolver: '<rootDir>/__tests__/utils/jest-resolver.ts',
   transform: {
     '^.+\\.ts$': ['ts-jest', {
       tsconfig: {
