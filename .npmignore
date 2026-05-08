@@ -1,3 +1,4 @@
+/.claude
 /.github
 /.husky
 /build
@@ -9,8 +10,11 @@
 /__mocks__
 
 .commitlintrc.yml
-.eslintrc.cjs
 .gitignore
+.node-version
+eslint.config.mjs
 jest.config.ts
-tsdown.config.ts
+pnpm-workspace.yaml
+tsconfig.json
 tsconfig.lib.json
+tsdown.config.ts
