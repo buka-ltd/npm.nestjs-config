@@ -1,6 +1,5 @@
 
-import { ConfigurationDefinitionRegistry } from '~/configuration-registry'
-import { ConfigurationCtor } from '~/types'
+import { ConfigurationDefinitionRegistry } from '~/configuration-registry.js'
 
 
 export function ConfigKey(key?: string): PropertyDecorator {
@@ -9,6 +8,6 @@ export function ConfigKey(key?: string): PropertyDecorator {
       throw new Error('[@buka/nestjs-config] @ConfigKey("YOUR_KEY") must be set, if the property key of the class is a symbol')
     }
 
-    ConfigurationDefinitionRegistry.registerProperty(target as ConfigurationCtor, { propertyKey, bind: key, exclude: false })
+    ConfigurationDefinitionRegistry.registerProperty(target, { propertyKey, bind: key, exclude: false })
   }
 }

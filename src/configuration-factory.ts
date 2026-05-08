@@ -1,14 +1,14 @@
 import * as R from 'ramda'
-import { RuntimeConfig } from './runtime-config'
-import { ConfigurationCtor, ConfigurationDefinition, ConfigurationProperty } from './types'
-import { ConfigurationDefinitionRegistry } from './configuration-registry'
+import { RuntimeConfig } from './runtime-config.js'
+import { ConfigurationCtor, ConfigurationDefinition, ConfigurationProperty } from './types/index.js'
+import { ConfigurationDefinitionRegistry } from './configuration-registry.js'
 import { instanceToInstance } from 'class-transformer'
 import { validate } from 'class-validator'
 import { Logger } from '@nestjs/common'
-import { RESET_COLOR } from './constants'
+import { RESET_COLOR } from './constants.js'
 import { inspect } from 'util'
-import { MergedConfig } from './raw-config-registry'
-import { logger } from './utils/logger'
+import { MergedConfig } from './raw-config-registry.js'
+import { logger } from './utils/logger.js'
 
 
 export class ConfigurationFactory {

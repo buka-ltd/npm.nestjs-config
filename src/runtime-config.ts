@@ -1,7 +1,7 @@
 import { Type } from '@nestjs/common'
 import { dotenvLoader } from './config-loader/dotenv-loader.js'
 import { processEnvLoader } from './config-loader/process-env-loader.js'
-import { ConfigModuleOptions, ConfigLoader, WatchableConfigLoader, LoadRawConfigFn } from './types'
+import { ConfigModuleOptions, ConfigLoader, WatchableConfigLoader, LoadRawConfigFn } from './types/index.js'
 
 /**
  * Normalized configuration options object

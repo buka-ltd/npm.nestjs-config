@@ -1,9 +1,9 @@
 import { Inject, Injectable, Logger, LoggerService, OnModuleDestroy, OnModuleInit } from '@nestjs/common'
-import { WatcherDisposer, WatchableConfigLoader, ConfigLoader } from './types'
-import { MODULE_RUNTIME_CONFIG_TOKEN } from './constants'
-import { RuntimeConfig } from './runtime-config'
-import { RawConfigRegistry } from './raw-config-registry'
-import { ConfigurationFactory } from './configuration-factory'
+import { WatcherDisposer, WatchableConfigLoader, ConfigLoader } from './types/index.js'
+import { MODULE_RUNTIME_CONFIG_TOKEN } from './constants.js'
+import { RuntimeConfig } from './runtime-config.js'
+import { RawConfigRegistry } from './raw-config-registry.js'
+import { ConfigurationFactory } from './configuration-factory.js'
 
 /**
  * 配置监听管理器

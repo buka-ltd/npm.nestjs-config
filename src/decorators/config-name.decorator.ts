@@ -1,6 +1,5 @@
 
-import { ConfigurationDefinitionRegistry } from '~/configuration-registry'
-import { ConfigurationCtor } from '~/types'
+import { ConfigurationDefinitionRegistry } from '~/configuration-registry.js'
 
 
 /**
@@ -8,6 +7,6 @@ import { ConfigurationCtor } from '~/types'
  */
 export function ConfigName(name: string): PropertyDecorator {
   return (target, propertyKey) => {
-    ConfigurationDefinitionRegistry.registerProperty(target as ConfigurationCtor, { exclude: false, propertyKey, bind: name })
+    ConfigurationDefinitionRegistry.registerProperty(target, { exclude: false, propertyKey, bind: name })
   }
 }

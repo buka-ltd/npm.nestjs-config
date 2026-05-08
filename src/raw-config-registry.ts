@@ -1,9 +1,9 @@
 import objectPath from 'object-path'
-import { toCamelCase } from './utils/to-camel-case'
-import { objectKeysToCamelCase } from './utils/object-keys-to-camel-case'
-import { deepMergeAll } from './utils/deep-merge-all'
-import { RuntimeConfig } from './runtime-config'
-import { ConfigLoader, LoadRawConfigFnOptions } from './types'
+import { toCamelCase } from './utils/to-camel-case.js'
+import { objectKeysToCamelCase } from './utils/object-keys-to-camel-case.js'
+import { deepMergeAll } from './utils/deep-merge-all.js'
+import { RuntimeConfig } from './runtime-config.js'
+import { ConfigLoader, LoadRawConfigFnOptions } from './types/index.js'
 
 /**
  * 配置片段，记录每个 loader 加载的原始配置

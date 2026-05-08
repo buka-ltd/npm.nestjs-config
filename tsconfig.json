@@ -5,31 +5,28 @@
     "esModuleInterop": true,
     "noImplicitAny": false,
     "experimentalDecorators": true,
-    "declaration": true,
+    "noEmit": true,
     "noEmitOnError": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
-    "module": "ESNext",
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
     "target": "ESNext",
-    "baseUrl": "./",
     "rootDir": "./",
     "lib": ["DOM", "Es2015.Proxy", "ESNext", "DOM.Iterable"],
     "paths": {
-      "~/*": ["src/*"],
+      "~/*": ["./src/*"],
       "~~/*": ["./*"]
-    },
-    "plugins": [
-      { "transform": "typescript-transform-paths" },
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ]
+    }
   },
   "exclude": ["node_modules", "dist"],
 
-  "include": ["**/*.ts", "jest.config.ts"],
+  "include": ["**/*.ts"],
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "moduleResolution": "node",
+      "ignoreDeprecations": "6.0"
     }
   }
 }

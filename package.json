@@ -3,20 +3,27 @@
   "version": "2.3.2",
   "description": "An easy to use nestjs config module",
   "packageManager": "pnpm@11.0.8+sha512.4c4097e1dd2d42372c4e7fa5a791ff28fc75a484c7ac192e64b1df0fdef17594ba982f9b4fed9adfb3c757846f565b799b2763fb3733d1de1bcb82cf46684912",
-  "main": "dist/umd/src/index.js",
-  "module": "dist/esm/src/index.js",
-  "types": "dist/esm/src/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
   "exports": {
-    "require": "./dist/umd/src/index.js",
-    "import": "./dist/esm/src/index.js"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
   },
   "scripts": {
-    "build": "npm run clean && ./build/build.sh",
-    "clean": "rm -rf ./dist/*",
-    "dev": "npm run clean && ./build/watch.sh",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "ts-patch install -s && is-ci || husky",
+    "prepare": "is-ci || husky",
     "prepublishOnly": "npm run build",
     "release": "standard-version",
     "release:alpha": "standard-version --prerelease alpha",
@@ -61,13 +68,13 @@
     "jest": "^29.7.0",
     "jest-mock": "^29.7.0",
     "memfs": "^4.14.0",
+    "reflect-metadata": "^0.2.2",
     "standard-version": "^9.5.0",
     "ts-jest": "^29.2.2",
     "ts-jest-resolver": "^2.0.1",
     "ts-node": "^10.9.2",
-    "ts-patch": "^3.3.0",
-    "typescript": "~5.8.3",
-    "typescript-transform-paths": "^3.4.7"
+    "tsdown": "^0.22.0",
+    "typescript": "~6.0.3"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.38.3",

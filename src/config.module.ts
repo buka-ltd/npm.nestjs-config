@@ -13,7 +13,7 @@ import {
   InjectedModule,
   ConfigModuleOptions,
   ConfigurationCtor,
-} from './types'
+} from './types/index.js'
 
 import { ConfigurationDefinitionRegistry } from './configuration-registry.js'
 import { RuntimeConfig } from './runtime-config.js'

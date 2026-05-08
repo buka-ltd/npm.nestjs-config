@@ -12,3 +12,5 @@
 .eslintrc.cjs
 .gitignore
 jest.config.ts
+tsdown.config.ts
+tsconfig.lib.json
