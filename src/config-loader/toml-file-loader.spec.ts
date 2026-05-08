@@ -22,11 +22,11 @@ test('jsonFileLoader', async () => {
 
   await fs.writeFile(filepath, toml)
 
-  const testConfig = await tomlFileLoader(filepath)({ suppressWarnings: true, providers: [] })
+  const testConfig = await tomlFileLoader(filepath).load({ suppressWarnings: true })
   expect(testConfig.title).toBe('TOML Title')
   expect(testConfig.owner.name).toBe('TOML Owner Name')
 
-  const unknownConfig = await tomlFileLoader('/unknown.json')({ providers: [] })
+  const unknownConfig = await tomlFileLoader('/unknown.json').load({})
   expect(unknownConfig).toEqual({})
 
   expect(warn.mock.calls.length).toBe(1)

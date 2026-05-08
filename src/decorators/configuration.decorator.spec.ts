@@ -9,5 +9,5 @@ class TestClass {
 
 test('Configuration', () => {
   const providers = ConfigurationDefinitionRegistry.getAll()
-  expect(providers.map((p) => p.target)).toEqual([TestClass])
+  expect(providers.map((p) => p.ctor)).toEqual([TestClass])
 })

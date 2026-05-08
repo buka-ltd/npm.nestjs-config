@@ -14,10 +14,10 @@ test('jsonFileLoader', async () => {
 
   await fs.writeFile('/test.json', '{ "test": "test" }')
 
-  const testConfig = await jsonFileLoader('/test.json')({ suppressWarnings: true, providers: [] })
+  const testConfig = await jsonFileLoader('/test.json').load({ suppressWarnings: true })
   expect(testConfig).toEqual({ test: 'test' })
 
-  const unknownConfig = await jsonFileLoader('/unknown.json')({ providers: [] })
+  const unknownConfig = await jsonFileLoader('/unknown.json').load({})
   expect(unknownConfig).toEqual({})
 
   expect(warn.mock.calls.length).toBe(1)

@@ -71,14 +71,14 @@ export class ConfigurationFactory {
         : { exclude: false, propertyKey }
 
       if (property.bind) {
-        set(propertyKey, raw.extract(property.bind))
+        set(propertyKey, raw.path(property.bind))
       } else if (scopedRaw && typeof property.propertyKey === 'string') {
-        set(propertyKey, scopedRaw.extract(property.propertyKey))
+        set(propertyKey, scopedRaw.path(property.propertyKey))
       }
     }
 
     const result = instanceToInstance(instance)
-    const errors = await validate(result)
+    const errors = await validate(result, { forbidUnknownValues: false })
 
     if (errors.length) {
       const message = errors
@@ -132,6 +132,7 @@ export class ConfigurationFactory {
       try {
         const instance = await this.build(rc, raw, definition)
         store.set(definition.ctor, instance)
+        this.instances.set(definition.ctor, instance)
       } catch (error) {
         logger.error(`Failed to create provider ${definition.ctor.name}: ${(error as Error).message}`)
         throw error

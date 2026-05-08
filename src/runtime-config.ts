@@ -66,10 +66,10 @@ export class RuntimeConfig {
       }
       // 如果是旧的 ConfigLoader 函数，包装为 WatchableConfigLoader
       if (typeof loader === 'function') {
-        return { load: loader } as WatchableConfigLoader
+        return { load: loader }
       }
       // 已经是 WatchableConfigLoader
-      return loader as WatchableConfigLoader
+      return loader
     })
   }
 

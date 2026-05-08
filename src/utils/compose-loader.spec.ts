@@ -4,12 +4,10 @@ import { composeLoader } from './compose-loader.js'
 
 test('composeLoader', async () => {
   const result = await composeLoader([
-    async () => ({ a: 1 }),
-    async () => ({ b: 2 }),
-    async () => ({ c: 3 }),
-  ])({
-    providers: [],
-  })
+    () => Promise.resolve({ a: 1 }),
+    () => Promise.resolve({ b: 2 }),
+    () => Promise.resolve({ c: 3 }),
+  ])({})
 
   expect(result).toEqual({
     a: 1,

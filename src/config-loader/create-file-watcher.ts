@@ -63,7 +63,7 @@ export function createFileWatcher(
       }
     })
 
-    const intervalId = setInterval(checkAndReload, intervalMs)
+    const intervalId = setInterval(() => void checkAndReload(), intervalMs)
 
     return () => {
       clearInterval(intervalId)
@@ -86,7 +86,7 @@ export function createFileWatcher(
       clearTimeout(debounceTimer)
     }
 
-    debounceTimer = setTimeout(async () => {
+    debounceTimer = setTimeout(() => void (async () => {
       try {
         logger.log(`Config file changed: ${filepath}`)
         if (watchOptions.onChange) {
@@ -102,7 +102,7 @@ export function createFileWatcher(
       } finally {
         debounceTimer = undefined
       }
-    }, debounceMs)
+    })(), debounceMs)
   }
 
   watcher.on('change', scheduleReload)

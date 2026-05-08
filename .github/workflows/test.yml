@@ -10,6 +10,7 @@ jobs:
           node-version-file: ".node-version"
       - uses: pnpm/action-setup@v4
       - run: pnpm i
+      - run: pnpm lint
       - run: pnpm test
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3

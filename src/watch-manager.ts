@@ -23,8 +23,8 @@ export class WatchManager implements OnModuleInit, OnModuleDestroy {
   /**
    * 模块初始化时启动配置监听
    */
-  async onModuleInit(): Promise<void> {
-    await this.startWatching()
+  onModuleInit(): void {
+    this.startWatching()
   }
 
   /**
@@ -37,7 +37,7 @@ export class WatchManager implements OnModuleInit, OnModuleDestroy {
   /**
    * 启动配置监听
    */
-  private async startWatching(): Promise<void> {
+  private startWatching(): void {
     const loaders = this.rc.loaders
 
     for (const loader of loaders) {
@@ -103,10 +103,10 @@ export class WatchManager implements OnModuleInit, OnModuleDestroy {
    */
   private isWatchable(loader: ConfigLoader): loader is WatchableConfigLoader {
     return (
-      loader !== null &&
-      typeof loader === 'object' &&
-      'load' in loader &&
-      'startWatch' in loader
+      loader !== null
+      && typeof loader === 'object'
+      && 'load' in loader
+      && 'startWatch' in loader
     )
   }
 }

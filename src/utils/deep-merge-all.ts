@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { mergeDeepRight } from 'ramda'
 
 
@@ -17,8 +17,8 @@ type DeepMergeRight<T, U> = {
       : never;
 }
 
-type DeepMergeAll<T extends any[]> =
-  T extends [infer F, ...infer R]
+type DeepMergeAll<T extends any[]>
+  = T extends [infer F, ...infer R]
     ? F extends object
       ? R extends any[]
         ? DeepMergeRight<F, DeepMergeAll<R>>
@@ -27,6 +27,6 @@ type DeepMergeAll<T extends any[]> =
     : {}
 
 
-export function deepMergeAll<T extends object[] >(list: T): DeepMergeAll<T> {
+export function deepMergeAll<T extends object[]>(list: T): DeepMergeAll<T> {
   return list.reduce((acc, curr) => mergeDeepRight(acc, curr)) as DeepMergeAll<T>
 }

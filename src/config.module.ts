@@ -58,7 +58,7 @@ export class ConfigModule extends ConfigurableModuleClass {
     return undefined
   }
 
-  static async getOrFail<T extends ConfigurationCtor>(ctor: T, options: ConfigModuleOptions): Promise<InstanceType<T>> {
+  static async getOrFail<T extends ConfigurationCtor>(ctor: T, options?: ConfigModuleOptions): Promise<InstanceType<T>> {
     const config = await this.get(ctor, options)
     if (!config) {
       throw new Error(`[@buka/nestjs-config] ${ctor.name} Not Founded`)

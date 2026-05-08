@@ -13,12 +13,12 @@ test('dotenvLoader', async () => {
 
   await fs.writeFile('/.env', 'T1=t1\nT2=${T2}')
 
-  const testConfig = await dotenvLoader('/.env')({ suppressWarnings: true, providers: [] })
+  const testConfig = await dotenvLoader('/.env').load({ suppressWarnings: true })
   expect(testConfig['T1']).toBe('t1')
   expect(testConfig['T2']).toBe('${T2}')
   expect(warn.mock.calls.length).toBe(0)
 
-  const unknownConfig = await dotenvLoader('unknown.env')({ providers: [] })
+  const unknownConfig = await dotenvLoader('unknown.env').load({})
   expect(unknownConfig).toEqual({})
 
   expect(warn.mock.calls.length).toBe(1)

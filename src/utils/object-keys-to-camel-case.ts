@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { toCamelCase } from './to-camel-case.js'
 
 

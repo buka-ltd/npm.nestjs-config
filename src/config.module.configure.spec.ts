@@ -3,6 +3,9 @@ import { ConfigModule } from './config.module'
 import { Test } from '@nestjs/testing'
 import { processEnvLoader } from './config-loader/process-env-loader.js'
 import { Configuration } from './decorators/configuration.decorator.js'
+import { ConfigurationFactory } from './configuration-factory'
+import { RawConfigRegistry } from './raw-config-registry'
+import { RuntimeConfig } from './runtime-config'
 
 @Configuration('shared_config')
 class SharedConfig {
@@ -11,10 +14,9 @@ class SharedConfig {
 }
 
 beforeEach(() => {
-  // Reset static state before each test
-  ;(ConfigModule as any).config = null
-  ;(ConfigModule as any).providers = new Map()
-  ;(ConfigModule as any).globalOptions = null
+  ;(ConfigurationFactory as any).instances = new Map()
+  ;(RawConfigRegistry as any).fragments = new Map()
+  RuntimeConfig.resetGlobal()
 })
 
 test('ConfigModule.configure() - preload without options', async () => {
@@ -49,7 +51,7 @@ test('ConfigModule.configure() - register without options', async () => {
   const dynamicModule = ConfigModule.register()
 
   expect(dynamicModule.global).toBeTruthy()
-  expect(dynamicModule.providers).toHaveLength(3)
+  expect(dynamicModule.providers).toHaveLength(4)
 
   const moduleRef = await Test.createTestingModule({
     providers: dynamicModule.providers,

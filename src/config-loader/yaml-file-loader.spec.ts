@@ -14,10 +14,10 @@ test('yamlFileLoader', async () => {
 
   await fs.writeFile('/test.yaml', 'test: test')
 
-  const testConfig = await yamlFileLoader('/test.yaml')({ suppressWarnings: true, providers: [] })
+  const testConfig = await yamlFileLoader('/test.yaml').load({ suppressWarnings: true })
   expect(testConfig).toEqual({ test: 'test' })
 
-  const unknownConfig = await yamlFileLoader('/unknown.yaml')({ providers: [] })
+  const unknownConfig = await yamlFileLoader('/unknown.yaml').load({})
   expect(unknownConfig).toEqual({})
 
   expect(warn.mock.calls.length).toBe(1)
