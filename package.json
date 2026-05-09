@@ -48,7 +48,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/buka-inc/npm.nestjs-config"
+    "url": "https://github.com/buka-ltd/npm.nestjs-config"
   },
   "devDependencies": {
     "@buka/eslint-config": "^4.0.0",

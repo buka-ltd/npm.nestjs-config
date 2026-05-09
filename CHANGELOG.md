@@ -19,65 +19,65 @@ All notable changes to this project will be documented in this file. See [standa
 
 - add ConfigModule.configure method to avoid duplication ([3e5e625](https://github.com/buka-ltd/npm.nestjs-config/commit/3e5e6251e52ef9ff408a02da133d9f9596a8d13a))
 
-## [2.3.2](https://github.com/buka-inc/npm.nestjs-config/compare/v2.3.1...v2.3.2) (2025-05-08)
+## [2.3.2](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.3.1...v2.3.2) (2025-05-08)
 
 ### Bug Fixes
 
-- wrong logger message ([e13c8a8](https://github.com/buka-inc/npm.nestjs-config/commit/e13c8a8a9f7c05451c305836f22b156331f7344d))
+- wrong logger message ([e13c8a8](https://github.com/buka-ltd/npm.nestjs-config/commit/e13c8a8a9f7c05451c305836f22b156331f7344d))
 
-## [2.3.1](https://github.com/buka-inc/npm.nestjs-config/compare/v2.3.0...v2.3.1) (2025-03-04)
+## [2.3.1](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.3.0...v2.3.1) (2025-03-04)
 
 ### Bug Fixes
 
-- add encoding parameters to toml and yaml files ([031420d](https://github.com/buka-inc/npm.nestjs-config/commit/031420dd18f25bd8c23977480a440210e01997cb))
+- add encoding parameters to toml and yaml files ([031420d](https://github.com/buka-ltd/npm.nestjs-config/commit/031420dd18f25bd8c23977480a440210e01997cb))
 
 ### Performance Improvements
 
-- add log context ([6a56efe](https://github.com/buka-inc/npm.nestjs-config/commit/6a56efef442f0d3cc5d8b20d925412e91ca3d0a5))
+- add log context ([6a56efe](https://github.com/buka-ltd/npm.nestjs-config/commit/6a56efef442f0d3cc5d8b20d925412e91ca3d0a5))
 
-## [2.3.0](https://github.com/buka-inc/npm.nestjs-config/compare/v2.2.0...v2.3.0) (2025-03-03)
+## [2.3.0](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.2.0...v2.3.0) (2025-03-03)
 
 ### Features
 
-- add dotenvx loader ([0826487](https://github.com/buka-inc/npm.nestjs-config/commit/08264878bd85d5895b39f38cacc73b7d7ff3a786))
-- add tomlFileLoader ([d6482b6](https://github.com/buka-inc/npm.nestjs-config/commit/d6482b6a2eb435d2fbdc5fded1164a39a498e787))
-- add yamlFileLoader ([89cb019](https://github.com/buka-inc/npm.nestjs-config/commit/89cb0199406e366458bede5e87c2abffad47efac))
+- add dotenvx loader ([0826487](https://github.com/buka-ltd/npm.nestjs-config/commit/08264878bd85d5895b39f38cacc73b7d7ff3a786))
+- add tomlFileLoader ([d6482b6](https://github.com/buka-ltd/npm.nestjs-config/commit/d6482b6a2eb435d2fbdc5fded1164a39a498e787))
+- add yamlFileLoader ([89cb019](https://github.com/buka-ltd/npm.nestjs-config/commit/89cb0199406e366458bede5e87c2abffad47efac))
 
-## [2.2.0](https://github.com/buka-inc/npm.nestjs-config/compare/v2.1.9...v2.2.0) (2025-03-02)
+## [2.2.0](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.1.9...v2.2.0) (2025-03-02)
 
 ### Features
 
-- add getOrFail method to ConfigModule ([e2ed1d4](https://github.com/buka-inc/npm.nestjs-config/commit/e2ed1d437e4af8f475dc7160726ec1c97b126ca6))
+- add getOrFail method to ConfigModule ([e2ed1d4](https://github.com/buka-ltd/npm.nestjs-config/commit/e2ed1d437e4af8f475dc7160726ec1c97b126ca6))
 
-## [2.1.9](https://github.com/buka-inc/npm.nestjs-config/compare/v2.1.8...v2.1.9) (2025-02-25)
+## [2.1.9](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.1.8...v2.1.9) (2025-02-25)
 
 ### Performance Improvements
 
-- providers is no longer a required parameter ([a17be2f](https://github.com/buka-inc/npm.nestjs-config/commit/a17be2f0096b05f0d0d10fce420cc63f1cf48fdf))
+- providers is no longer a required parameter ([a17be2f](https://github.com/buka-ltd/npm.nestjs-config/commit/a17be2f0096b05f0d0d10fce420cc63f1cf48fdf))
 
-## [2.1.8](https://github.com/buka-inc/npm.nestjs-config/compare/v2.1.7...v2.1.8) (2025-02-24)
+## [2.1.8](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.1.7...v2.1.8) (2025-02-24)
 
 ### Bug Fixes
 
-- cannot work in es2021 ([bae234b](https://github.com/buka-inc/npm.nestjs-config/commit/bae234b33ca97d4f9666a2c874418147745e7006)), closes [#26](https://github.com/buka-inc/npm.nestjs-config/issues/26)
+- cannot work in es2021 ([bae234b](https://github.com/buka-ltd/npm.nestjs-config/commit/bae234b33ca97d4f9666a2c874418147745e7006)), closes [#26](https://github.com/buka-ltd/npm.nestjs-config/issues/26)
 
-## [2.1.7](https://github.com/buka-inc/npm.nestjs-config/compare/v2.1.6...v2.1.7) (2025-02-01)
+## [2.1.7](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.1.6...v2.1.7) (2025-02-01)
 
 ### Performance Improvements
 
-- support nestjs@11 ([c772962](https://github.com/buka-inc/npm.nestjs-config/commit/c7729620ece765535c7abe891b68ea9c7b8dedd0))
+- support nestjs@11 ([c772962](https://github.com/buka-ltd/npm.nestjs-config/commit/c7729620ece765535c7abe891b68ea9c7b8dedd0))
 
-## [2.1.6](https://github.com/buka-inc/npm.nestjs-config/compare/v2.1.5...v2.1.6) (2024-11-27)
+## [2.1.6](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.1.5...v2.1.6) (2024-11-27)
 
 ### Bug Fixes
 
-- correct repotory.url ([fe81b9f](https://github.com/buka-inc/npm.nestjs-config/commit/fe81b9fb86252266f0ca778b0758fc6e3bf509c2))
+- correct repotory.url ([fe81b9f](https://github.com/buka-ltd/npm.nestjs-config/commit/fe81b9fb86252266f0ca778b0758fc6e3bf509c2))
 
-## [2.1.5](https://github.com/buka-inc/npm.nestjs-config/compare/v2.1.4...v2.1.5) (2024-11-27)
+## [2.1.5](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.1.4...v2.1.5) (2024-11-27)
 
 ### Performance Improvements
 
-- upgrade dependens and use fs.access replace existsSync ([15cec8f](https://github.com/buka-inc/npm.nestjs-config/commit/15cec8fdaef5c49914eb19036715e5519c58e5be))
+- upgrade dependens and use fs.access replace existsSync ([15cec8f](https://github.com/buka-ltd/npm.nestjs-config/commit/15cec8fdaef5c49914eb19036715e5519c58e5be))
 
 ## [2.1.4](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.1.3...v2.1.4) (2024-10-20)
 
