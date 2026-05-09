@@ -6,7 +6,7 @@
 [![downloads](https://img.shields.io/npm/dm/@buka/nestjs-config.svg?logo=npm&style=for-the-badge)][npm]
 [![dependencies](https://img.shields.io/librariesio/release/npm/@buka/nestjs-config?logo=npm&style=for-the-badge)][npm]
 [![license](https://img.shields.io/npm/l/@buka/nestjs-config.svg?logo=github&style=for-the-badge)][npm]
-[![Codecov](https://img.shields.io/codecov/c/gh/buka-lnc/npm.nestjs-config?logo=codecov&token=PLF0DT6869&style=for-the-badge)](https://codecov.io/gh/buka-lnc/npm.nestjs-config)
+[![Codecov](https://img.shields.io/codecov/c/gh/buka-ltd/npm.nestjs-config?logo=codecov&token=PLF0DT6869&style=for-the-badge)](https://codecov.io/gh/buka-ltd/npm.nestjs-config)
 
 An easy-to-use NestJS config module with powerful features and type safety.
 
@@ -84,9 +84,7 @@ import { Module } from "@nestjs/common";
 import { ConfigModule } from "@buka/nestjs-config";
 
 @Module({
-  imports: [
-    ConfigModule.register({ isGlobal: true }),
-  ],
+  imports: [ConfigModule.register({ isGlobal: true })],
 })
 export class AppModule {}
 ```
@@ -122,13 +120,14 @@ When you need to use configuration in multiple places (NestJS modules, ORM confi
 
 ```typescript
 // config/index.ts
-import { ConfigModule, processEnvLoader, yamlFileLoader } from "@buka/nestjs-config";
+import {
+  ConfigModule,
+  processEnvLoader,
+  yamlFileLoader,
+} from "@buka/nestjs-config";
 
 ConfigModule.configure({
-  loaders: [
-    processEnvLoader(),
-    yamlFileLoader("config.yaml"),
-  ],
+  loaders: [processEnvLoader(), yamlFileLoader("config.yaml")],
   suppressWarnings: true,
 });
 ```
@@ -166,6 +165,7 @@ export default (async function () {
 
 > [!TIP]
 > **Benefits of Global Configuration:**
+>
 > - Configure once, use everywhere
 > - No duplication between `preload()` and `register()`
 > - Guaranteed consistency across your application
@@ -202,7 +202,11 @@ interface ConfigModuleOptions {
 You can customize how configuration is loaded:
 
 ```typescript
-import { ConfigModule, processEnvLoader, dotenvLoader } from "@buka/nestjs-config";
+import {
+  ConfigModule,
+  processEnvLoader,
+  dotenvLoader,
+} from "@buka/nestjs-config";
 
 ConfigModule.configure({
   loaders: [
@@ -256,6 +260,7 @@ export class MysqlConfig {
 ```
 
 Mapping:
+
 - `process.env`: `MYSQL__MASTER__HOST`
 - `.env` file: `MYSQL__MASTER__HOST`
 - JSON file: `{ mysql: { master: { host: "..." } } }`
@@ -337,7 +342,12 @@ The module supports hot-reloading of configuration files, allowing your applicat
 Enable hot reload per loader using the `hotReload` option:
 
 ```typescript
-import { ConfigModule, dotenvLoader, jsonFileLoader, yamlFileLoader } from "@buka/nestjs-config";
+import {
+  ConfigModule,
+  dotenvLoader,
+  jsonFileLoader,
+  yamlFileLoader,
+} from "@buka/nestjs-config";
 
 @Module({
   imports: [
@@ -348,10 +358,10 @@ import { ConfigModule, dotenvLoader, jsonFileLoader, yamlFileLoader } from "@buk
         dotenvLoader(".env", { hotReload: true }),
 
         // Enable hot reload for JSON file
-        jsonFileLoader("./config.json", 'utf-8', { hotReload: true }),
+        jsonFileLoader("./config.json", "utf-8", { hotReload: true }),
 
         // Enable hot reload for YAML file
-        yamlFileLoader("./config.yaml", 'utf-8', { hotReload: true }),
+        yamlFileLoader("./config.yaml", "utf-8", { hotReload: true }),
       ],
     }),
   ],
@@ -369,8 +379,8 @@ ConfigModule.register({
     // File system watch (default, recommended)
     dotenvLoader(".env", {
       hotReload: {
-        type: 'watch',        // Use chokidar file system watcher
-        debounceMs: 500,      // Wait 500ms before reloading (default: 300ms)
+        type: "watch", // Use chokidar file system watcher
+        debounceMs: 500, // Wait 500ms before reloading (default: 300ms)
 
         onChange: async (newConfig) => {
           console.log("Config file changed, new config:", newConfig);
@@ -383,10 +393,10 @@ ConfigModule.register({
     }),
 
     // Polling mode (for network drives or special filesystems)
-    jsonFileLoader("./config.json", 'utf-8', {
+    jsonFileLoader("./config.json", "utf-8", {
       hotReload: {
-        type: 'interval',     // Use polling instead of file watching
-        intervalMs: 5000,     // Check every 5 seconds (default: 5000ms)
+        type: "interval", // Use polling instead of file watching
+        intervalMs: 5000, // Check every 5 seconds (default: 5000ms)
         debounceMs: 300,
       },
     }),
@@ -413,6 +423,7 @@ async reloadConfig() {
 ```
 
 This is useful when:
+
 - Configuration is updated programmatically (not via file changes)
 - You need to reload configuration on demand (e.g., admin endpoint)
 - Testing configuration changes
@@ -481,7 +492,7 @@ class DatabaseConfig {
       DatabaseConfig,
       TypeOrmModule,
       { name: "primary" }, // Additional options
-      (config) => config    // Config mapper (optional)
+      (config) => config, // Config mapper (optional)
     ),
   ],
 })
@@ -495,19 +506,19 @@ TypeOrmModule.forRootAsync({
   name: "primary",
   inject: [DatabaseConfig],
   useFactory: (config: DatabaseConfig) => config,
-})
+});
 ```
 
 ## Built-in Loaders
 
-| Loader | Description |
-|--------|-------------|
-| `processEnvLoader()` | Load from `process.env` |
-| `dotenvLoader(path, options?)` | Load `.env` file using [dotenv](https://www.npmjs.com/package/dotenv) |
-| `dotenvxLoader(path, options?)` | Load `.env` file using [@dotenvx/dotenvx](https://www.npmjs.com/package/@dotenvx/dotenvx) |
-| `jsonFileLoader(path)` | Load JSON file |
-| `yamlFileLoader(path, encoding?)` | Load YAML file using [yaml](https://www.npmjs.com/package/yaml) |
-| `tomlFileLoader(path, encoding?)` | Load TOML file using [smol-toml](https://www.npmjs.com/package/smol-toml) |
+| Loader                            | Description                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------- |
+| `processEnvLoader()`              | Load from `process.env`                                                                   |
+| `dotenvLoader(path, options?)`    | Load `.env` file using [dotenv](https://www.npmjs.com/package/dotenv)                     |
+| `dotenvxLoader(path, options?)`   | Load `.env` file using [@dotenvx/dotenvx](https://www.npmjs.com/package/@dotenvx/dotenvx) |
+| `jsonFileLoader(path)`            | Load JSON file                                                                            |
+| `yamlFileLoader(path, encoding?)` | Load YAML file using [yaml](https://www.npmjs.com/package/yaml)                           |
+| `tomlFileLoader(path, encoding?)` | Load TOML file using [smol-toml](https://www.npmjs.com/package/smol-toml)                 |
 
 ### Custom Loader Example
 
