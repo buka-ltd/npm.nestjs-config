@@ -47,6 +47,7 @@ export class MergedConfig {
    * @returns 新的 MergedConfig 实例
    */
   extract(scope: string): MergedConfig {
+    if (!scope) return new MergedConfig(this.data)
     const scopedData = this.data[scope] || {}
     return new MergedConfig(scopedData)
   }
