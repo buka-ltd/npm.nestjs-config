@@ -4,14 +4,14 @@
  * Further ensures that ConfigModule can read all classes decorated by @Configuration() from Reflect.
  */
 import { Type } from '@nestjs/common'
-import { LoadRawConfigFn, LoadRawConfigFnOptions } from './config-loader.js'
+import { ConfigLoader, LoadRawConfigFn, LoadRawConfigFnOptions } from './config-loader.js'
 
 
 export interface ConfigModuleOptions extends LoadRawConfigFnOptions {
   /**
    * @default ".env"
    */
-  loaders?: (string | LoadRawConfigFn)[]
+  loaders?: (string | LoadRawConfigFn | ConfigLoader)[]
 
   /**
    * Provider can be automatically loaded, in most cases.
