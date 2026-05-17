@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.3](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.4.2...v2.4.3) (2026-05-17)
+
+
+### Bug Fixes
+
+* unabled set WatchableConfigLoader ([fe72659](https://github.com/buka-ltd/npm.nestjs-config/commit/fe72659b3834d5cfd371727603b0adc4ff93b8b1))
+
 ## [2.4.2](https://github.com/buka-ltd/npm.nestjs-config/compare/v2.4.1...v2.4.2) (2026-05-09)
 
 
